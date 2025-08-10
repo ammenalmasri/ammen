@@ -3,54 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>أمين المصري — بروفايل</title>
+  <title>أمين المصري</title>
   <meta name="description" content="أمين المصري | تصوير فيديو، مونتاج، وتسويق بالمحتوى المرئي (Shorts)" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg:#0b0c10; --text:#fff; --muted:rgba(255,255,255,.78); --muted2:rgba(255,255,255,.6);
+      --bg:#0b0c10; --text:#fff; --muted:rgba(255,255,255,.8); --muted2:rgba(255,255,255,.65);
       --g1:#4f46e5; --g2:#8b5cf6; --g3:#ec4899;
       --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
       --shadow:0 10px 30px rgba(0,0,0,.25);
     }
     *{box-sizing:border-box}
     html,body{scroll-behavior:smooth}
-    body{margin:0;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.8}
+    body{margin:0;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.85}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1160px;margin-inline:auto;padding-inline:1rem}
 
-    /* Header / Navbar */
-    header{position:sticky;top:0;z-index:100;background:rgba(10,10,12,.55);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    /* ===== Navbar ===== */
+    header{position:sticky;top:0;z-index:100;background:rgba(10,10,12,.6);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
-    .brand-badge{padding:.35rem .6rem;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.05)}
-    .menu{display:flex;align-items:center;gap:.5rem}
-    .btn{border-radius:12px;padding:.55rem .9rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap}
-    .btn.primary{background:#fff;color:#000;border-color:transparent}
-    .btn.ghost:hover{background:rgba(255,255,255,.08)}
+    .brand{font-weight:800;font-size:1.05rem;padding:.4rem .7rem;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.05)}
 
-    /* Mobile menu */
-    .hamburger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.04)}
-    .hamburger svg{width:22px;height:22px}
-    .links{display:none;flex-direction:column;gap:.5rem;padding:.7rem;border-top:1px solid var(--border)}
-    .links a{padding:.6rem .8rem;border-radius:10px}
-    .links a:hover{background:rgba(255,255,255,.07)}
-    .menu.open + .links{display:flex}
-    @media(min-width:900px){
-      .hamburger{display:none}
-      .links{display:none}
-      .menu{gap:.5rem}
-      .menu .btn{display:inline-flex}
-      .menu .desktop-links{display:inline-flex;gap:.5rem}
-    }
+    .menu-btn{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.05)}
+    .menu-btn svg{width:22px;height:22px}
     .desktop-links{display:none}
+    .mobile-links{display:none;flex-direction:column;gap:.2rem;padding:.6rem;border-top:1px solid var(--border)}
+    .mobile-links a{padding:.65rem .85rem;border-radius:10px;font-size:.95rem}
+    .mobile-links a:hover{background:rgba(255,255,255,.08)}
 
-    /* Hero */
-    .hero{padding:52px 0 16px;position:relative;overflow:hidden}
+    @media(min-width:900px){
+      .menu-btn{display:none}
+      .desktop-links{display:flex;gap:.5rem}
+      .desktop-links a{border:1px solid var(--border);padding:.5rem .85rem;border-radius:12px;font-size:.95rem;white-space:nowrap}
+      .desktop-links a:hover{background:rgba(255,255,255,.08)}
+      .mobile-links{display:none!important}
+    }
+
+    /* ===== Hero ===== */
+    .hero{padding:54px 0 18px;position:relative;overflow:hidden}
     .bgfx{
       position:absolute;inset:0;z-index:-1;opacity:.9;
       background:
@@ -60,45 +53,34 @@
       animation:hue 14s linear infinite;
     }
     @keyframes hue{from{filter:hue-rotate(0)}to{filter:hue-rotate(360deg)}}
-
-    h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;margin:.25rem 0 .3rem}
-    h2{font-size:clamp(1.4rem,3vw,2rem);margin:0 0 .75rem}
-    p.lead{color:var(--muted);max-width:640px}
-
-    .grid{display:grid;gap:24px}
+    h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.15;margin:.25rem 0 .3rem}
+    h2{font-size:clamp(1.2rem,3vw,2rem);margin:0 0 .75rem}
+    p.lead{color:var(--muted);max-width:640px;margin-inline:auto}
+    .grid{display:grid;gap:22px}
     @media(min-width:900px){.grid-2{grid-template-columns:1.2fr .8fr}}
 
-    /* Photo */
     .photo{width:min(18rem,86vw);aspect-ratio:1/1;border-radius:24px;overflow:hidden;border:1px solid var(--border);
-      background:linear-gradient(135deg,rgba(79,70,229,.18),rgba(236,72,153,.18));padding:4px;box-shadow:var(--shadow)}
-    .photo img{width:100%;height:100%;object-fit:cover;border-radius:20px;animation:float 3s ease-in-out infinite}
-    @keyframes float{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
+      background:linear-gradient(135deg,rgba(79,70,229,.18),rgba(236,72,153,.18));padding:4px;box-shadow:var(--shadow);margin-inline:auto}
+    .photo img{width:100%;height:100%;object-fit:cover;border-radius:20px}
 
-    /* Sections & cards */
+    /* ===== Sections, cards ===== */
     section{padding:56px 0}
     .card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
-    .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .service-title{font-weight:700;margin:.4rem 0}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .service-title{font-weight:700;margin:.35rem 0}
     .muted{color:var(--muted)} .muted2{color:var(--muted2)}
 
-    /* Reveal */
-    .reveal{opacity:0;transform:translateY(18px)}
-    .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
-    @media (prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1;transform:none;transition:none}.bgfx{animation:none}}
-
-    /* Shorts: mobile carousel + desktop grid */
+    /* ===== Shorts: mobile carousel + desktop grid ===== */
     .carousel{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
     .carousel::-webkit-scrollbar{height:8px}
     .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px}
     .short-card{
-      flex:0 0 74vw;max-width:74vw; /* mobile width */
-      border:1px solid var(--border);background:var(--card);border-radius:18px;overflow:hidden;scroll-snap-align:center;
+      flex:0 0 74vw;max-width:74vw;border:1px solid var(--border);background:var(--card);border-radius:18px;overflow:hidden;scroll-snap-align:center;
       box-shadow:var(--shadow);transform:translateY(6px) scale(.99);transition:transform .25s ease,box-shadow .25s ease
     }
     .short-card:hover{transform:translateY(-2px) scale(1.01)}
     .short-card .vid{width:100%;aspect-ratio:9/16;display:block}
     .short-title{padding:.6rem .75rem;font-weight:700;line-height:1.5}
-
     .grid-shorts{display:none}
     @media(min-width:900px){
       .carousel{display:none}
@@ -106,149 +88,131 @@
       .short-card{flex:unset;max-width:unset}
     }
 
-    /* Footer & FAB */
+    /* ===== Footer & WhatsApp FAB ===== */
     footer{border-top:1px solid var(--border);color:var(--muted2);text-align:center;padding:18px 0}
     .wa-fab{position:fixed;left:16px;bottom:16px;z-index:60;background:#22c55e;color:#fff;padding:.7rem 1rem;border-radius:999px;
       display:inline-flex;gap:.5rem;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .icon{width:20px;height:20px;display:inline-block;vertical-align:middle}
-    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- ===== Navbar ===== -->
   <header>
     <div class="container">
       <div class="nav">
-        <div class="brand">
-          <span class="brand-badge">أمين المصري</span>
-        </div>
-
-        <!-- Right chunk: desktop links + buttons -->
-        <div class="menu" id="menu">
-          <button class="hamburger" id="hambtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="links">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M8 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-          </button>
-
-          <div class="desktop-links">
-            <a href="#about" class="btn ghost">عني</a>
-            <a href="#services" class="btn ghost">خدماتي</a>
-            <a href="#work" class="btn ghost">أعمالي</a>
-            <a href="#contact" class="btn primary">تواصل</a>
-          </div>
-        </div>
+        <div class="brand">أمين المصري</div>
+        <button class="menu-btn" id="menuBtn" aria-label="القائمة" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M8 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <nav class="desktop-links" aria-label="روابط">
+          <a href="#about">عني</a>
+          <a href="#services">خدماتي</a>
+          <a href="#work">أعمالي</a>
+          <a href="#contact">تواصل</a>
+        </nav>
       </div>
-
-      <!-- Mobile links (collapsible) -->
-      <div class="links" id="links">
+      <nav class="mobile-links" id="mLinks" aria-label="روابط الجوال">
         <a href="#about">عني</a>
         <a href="#services">خدماتي</a>
         <a href="#work">أعمالي</a>
         <a href="#contact">تواصل</a>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="bgfx"></div>
-      <div class="container grid grid-2">
-        <div class="reveal in">
-          <span class="brand-badge">بورتفوليو فيديو احترافي</span>
-          <h1>أمين المصري</h1>
-          <p class="lead">أنتج فيديوهات قصيرة <strong>(Shorts)</strong> تركز على القصة: <strong>تصوير فيديو</strong>، <strong>مونتاج</strong>، و<strong>تسويق بالمحتوى المرئي</strong> — بتنسيق يناسب المنصات ويحقق تفاعلًا واضحًا.</p>
-          <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap">
-            <a href="#work" class="btn primary">شاهد أعمالي</a>
-            <a href="#contact" class="btn ghost">تواصل معي</a>
-          </div>
-        </div>
-        <div class="reveal" style="justify-self:center">
-          <div class="photo">
-            <!-- صورة من الرابط مباشرة -->
-            <img src="https://i.ibb.co/ZsL6t6F/profile.jpg" alt="صورة أمين المصري">
-          </div>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="bgfx"></div>
+    <div class="container grid grid-2">
+      <div>
+        <h1>أمين المصري</h1>
+        <p class="lead">
+          أنتج فيديوهات قصيرة <strong>(Shorts)</strong> تركز على القصة: <strong>تصوير فيديو</strong>، <strong>مونتاج</strong>، و<strong>تسويق بالمحتوى المرئي</strong> — بتنسيق يناسب المنصات ويحقق تفاعلًا واضحًا.
+        </p>
+        <div style="margin-top:12px" class="row">
+          <a href="#work" style="border:1px solid var(--border);padding:.6rem 1rem;border-radius:12px;background:#fff;color:#000">شاهد أعمالي</a>
+          <a href="#contact" style="border:1px solid var(--border);padding:.6rem 1rem;border-radius:12px">تواصل معي</a>
         </div>
       </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="container reveal">
-        <h2>عني</h2>
-        <p class="lead">أنا أمين المصري، متخصص في الفيديو القصير: من التخطيط والسكربت، إلى التصوير العمودي والمونتاج السريع وتنسيق النشر. تركيزي بالكامل على الفيديو بدون تصميم جرافيكي، بهدف إخراج بسيط وواضح يحقق نتائج.</p>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="container">
-        <h2 class="reveal">خدماتي</h2>
-        <div class="grid services">
-          <div class="card reveal">
-            <div>🎥</div>
-            <div class="service-title">تصوير فيديو (عمودي)</div>
-            <div class="muted">تصوير Shorts للمقابلات، القصص القصيرة، والتغطيات — بإضاءة وصوت مناسبين للمنصات.</div>
-          </div>
-          <div class="card reveal">
-            <div>✂️</div>
-            <div class="service-title">مونتاج وإخراج</div>
-            <div class="muted">مونتاج سريع، ترتيب السرد، تقطيع دقيق، تصحيح ألوان أساسي، ومعالجة صوت.</div>
-          </div>
-          <div class="card reveal">
-            <div>📈</div>
-            <div class="service-title">تسويق بالفيديو</div>
-            <div class="muted">تخطيط أهداف المحتوى، سكربت قصير، وجدولة نشر لتحقيق وصول وتفاعل أعلى.</div>
-          </div>
+      <div>
+        <div class="photo">
+          <img src="https://i.ibb.co/ZsL6t6F/profile.jpg" alt="صورة أمين المصري">
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- WORK -->
-    <section id="work">
-      <div class="container">
-        <h2 class="reveal">أعمالي</h2>
-        <p class="muted reveal">آخر الشورتات من قناتي</p>
+  <!-- ===== About ===== -->
+  <section id="about">
+    <div class="container">
+      <h2>عني</h2>
+      <p class="lead">طالب علاقات عامة وإعلان، أركز على إنتاج الفيديو القصير من الفكرة والسكربت إلى التصوير العمودي والمونتاج السريع، مع تنسيق نشر بسيط وواضح. لا أقدم تصميم جرافيكي — تركيزي بالكامل على الفيديو.</p>
+    </div>
+  </section>
 
-        <!-- Mobile: horizontal carousel -->
-        <div id="carousel" class="carousel" aria-label="Shorts carousel"></div>
-
-        <!-- Desktop: grid -->
-        <div id="grid" class="grid-shorts"></div>
-
-        <div style="margin-top:14px">
-          <a class="btn primary" href="https://www.youtube.com/@ameenalmasri-qz8ny" target="_blank" rel="noreferrer">شاهد المزيد على يوتيوب</a>
+  <!-- ===== Services ===== -->
+  <section id="services">
+    <div class="container">
+      <h2>خدماتي</h2>
+      <div class="services">
+        <div class="card">
+          <div>🎥</div>
+          <div class="service-title">تصوير فيديو (عمودي)</div>
+          <div class="muted">تصوير Shorts للمقابلات، القصص القصيرة، والتغطيات — بإضاءة وصوت مناسبين للمنصات.</div>
         </div>
-
-        <p id="status" class="muted2" style="margin-top:8px"></p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-        <div class="card reveal">
-          <h2>تواصل معي</h2>
-          <p class="muted">للتعاون والاستفسار أو تحديد موعد تصوير.</p>
-          <div class="row" style="margin-top:.5rem">
-            <a href="https://www.instagram.com/ameen_.almasri?igsh=MTVrM2tuaG9ramQwdA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" class="btn primary" aria-label="Instagram">
-              <!-- Instagram SVG -->
-              <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zM398.8 80c-7.8-20.7-23.1-37-43.8-43.8C334.5 25.6 224 24 224 24s-110.5 1.6-131 12.2c-20.7 7.8-36 23.1-43.8 43.8C38.6 100.5 37 211 37 211s-1.6 110.5 12.2 131c7.8 20.7 23.1 37 43.8 43.8C113.5 396.4 224 398 224 398s110.5-1.6 131-12.2c20.7-7.8 36-23.1 43.8-43.8C409.4 321.5 411 211 411 211s-1.6-110.5-12.2-131z"/></svg>
-              Instagram
-            </a>
-            <a href="https://www.facebook.com/share/1B93jURaEE/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="btn" aria-label="Facebook">
-              <!-- Facebook SVG -->
-              <svg class="icon" viewBox="0 0 320 512" aria-hidden="true"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H295V6.26S265.91 0 238.36 0C167.64 0 121.09 44.38 121.09 124.72v70.62H32v92.66h89.09V512h107.77V288z"/></svg>
-              Facebook
-            </a>
-          </div>
+        <div class="card">
+          <div>✂️</div>
+          <div class="service-title">مونتاج وإخراج</div>
+          <div class="muted">مونتاج سريع، ترتيب السرد، تقطيع دقيق، تصحيح ألوان أساسي، ومعالجة صوت.</div>
+        </div>
+        <div class="card">
+          <div>📈</div>
+          <div class="service-title">تسويق بالفيديو</div>
+          <div class="muted">تخطيط أهداف المحتوى، سكربت قصير، وجدولة نشر لتحقيق وصول وتفاعل أعلى.</div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- ===== Work (Shorts) ===== -->
+  <section id="work">
+    <div class="container">
+      <h2>أعمالي</h2>
+      <p class="muted">آخر الشورتات من قناتي</p>
+      <!-- Mobile carousel -->
+      <div id="carousel" class="carousel" aria-label="Shorts carousel"></div>
+      <!-- Desktop grid -->
+      <div id="grid" class="grid-shorts" aria-label="Shorts grid"></div>
+      <div class="row" style="margin-top:14px">
+        <a class="btn" style="background:#fff;color:#000;border-color:transparent" href="https://www.youtube.com/@ameenalmasri-qz8ny" target="_blank" rel="noreferrer">شاهد المزيد على يوتيوب</a>
+      </div>
+      <p id="status" class="muted2" style="margin-top:8px"></p>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact">
+    <div class="container">
+      <h2>تواصل معي</h2>
+      <p class="muted">للتعاون والاستفسار أو تحديد موعد تصوير.</p>
+      <div class="row" style="margin-top:.5rem">
+        <a href="https://www.instagram.com/ameen_.almasri?igsh=MTVrM2tuaG9ramQwdA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" class="btn" style="background:#fff;color:#000;border-color:transparent">
+          <!-- Instagram icon -->
+          <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zM398.8 80c-7.8-20.7-23.1-37-43.8-43.8C334.5 25.6 224 24 224 24s-110.5 1.6-131 12.2c-20.7 7.8-36 23.1-43.8 43.8C38.6 100.5 37 211 37 211s-1.6 110.5 12.2 131c7.8 20.7 23.1 37 43.8 43.8C113.5 396.4 224 398 224 398s110.5-1.6 131-12.2c20.7-7.8 36-23.1 43.8-43.8C409.4 321.5 411 211 411 211s-1.6-110.5-12.2-131z"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/share/1B93jURaEE/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="btn">
+          <!-- Facebook icon -->
+          <svg class="icon" viewBox="0 0 320 512" aria-hidden="true"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H295V6.26S265.91 0 238.36 0C167.64 0 121.09 44.38 121.09 124.72v70.62H32v92.66h89.09V512h107.77V288z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- WhatsApp FAB -->
   <a class="wa-fab" href="https://wa.me/962792847709?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D9%85%D9%8A%D9%86%D8%8C%20%D8%AD%D8%A7%D8%A8%20%D8%A3%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF" target="_blank" rel="noreferrer" aria-label="WhatsApp">
-    <!-- WhatsApp SVG -->
     <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 224.5 32 103.5 32 4 131.5 4 252.5c0 43.5 11.4 85.8 33 123.1L0 480l107.8-35.4c35.2 19.2 74.9 29.3 116.7 29.3h.1c121 0 219.5-99.5 219.5-220.5 0-58.7-23.7-114.5-64.2-156.4zM224.6 438.7h-.1c-37.5 0-74.3-10.1-106.3-29.1l-7.6-4.5-64 21.1 21.3-62.3-4.9-8C47 322 36.9 288 36.9 252.6c0-103.2 84-187.2 187.6-187.2 50.1 0 97.1 19.5 132.7 55s55.1 82.6 55.1 132.7c0 103.3-84 187.6-187.6 187.6zm101.7-139.5c-5.6-2.8-33.1-16.3-38.2-18.2-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.2-17.6 21.9-3.2 3.7-6.5 4.2-12.1 1.4-33.6-16.6-55.5-29.7-77.6-67.3-5.9-10.1 5.9-9.4 16.8-31.1 1.8-3.7.9-6.8-.5-9.6-1.4-2.8-12.5-30.1-17.1-41.1-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.8-.2-10.4-.2-3.7 0-9.6 1.4-14.7 6.8-5.1 5.6-19.3 18.8-19.3 45.9s19.8 53.2 22.6 56.9c2.8 3.7 38.8 59.3 94 83.2 35 15.1 48.7 16.4 66.3 13.9 10.7-1.7 33.1-13.5 37.7-26.5 4.7-13 4.7-24.2 3.2-26.5-1.4-2.6-5.1-4.2-10.7-7z"/></svg>
     واتساب
   </a>
@@ -259,39 +223,30 @@
     // سنة الفوتر
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
-    const hambtn = document.getElementById('hambtn');
-    const links  = document.getElementById('links');
-    const menu   = document.getElementById('menu');
-    hambtn.addEventListener('click', () => {
-      const open = menu.classList.toggle('open');
-      hambtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Toggle mobile menu
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('mLinks');
+    btn.addEventListener('click', () => {
+      const open = links.style.display !== 'flex';
       links.style.display = open ? 'flex' : 'none';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    // أغلق القائمة عند الضغط على أي رابط
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      menu.classList.remove('open'); links.style.display='none'; hambtn.setAttribute('aria-expanded','false');
-    }));
+    // إغلاق القائمة عند الضغط على أي رابط
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click',()=>{links.style.display='none';btn.setAttribute('aria-expanded','false')}));
 
-    // Reveal on scroll
-    const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.18});
-    document.querySelectorAll('.reveal, .card').forEach(el=>io.observe(el));
-
-    // === YouTube Shorts ===
-    const API_KEY = "AIzaSyD9GEmfKaulTlq5lt1hd9flT7Kret2Vltw"; // غيّره لو احتجت
+    // ===== YouTube Shorts =====
+    const API_KEY = "AIzaSyD9GEmfKaulTlq5lt1hd9flT7Kret2Vltw"; // غيّره إذا لزم
     const HANDLE  = "@ameenalmasri-qz8ny";
     const MAX_RESULTS = 12;
 
     async function resolveChannelId(handle){
-      // نحاول أولًا عبر forHandle (أسرع)، ثم نfallback للبحث
+      // أسرع: forHandle (قد لا تعمل على كل الحسابات) ثم fallback للبحث
       try{
         const u1 = `https://www.googleapis.com/youtube/v3/channels?part=id&forHandle=${encodeURIComponent(handle)}&key=${API_KEY}`;
-        const r1 = await fetch(u1); const d1 = await r1.json();
-        const id = d1?.items?.[0]?.id; if(id) return id;
+        const r1 = await fetch(u1); const d1 = await r1.json(); const id = d1?.items?.[0]?.id; if(id) return id;
       }catch{}
       const u2 = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${encodeURIComponent(handle)}&maxResults=1&key=${API_KEY}`;
-      const r2 = await fetch(u2); const d2 = await r2.json();
-      return d2?.items?.[0]?.id?.channelId || null;
+      const r2 = await fetch(u2); const d2 = await r2.json(); return d2?.items?.[0]?.id?.channelId || null;
     }
     async function getUploadsPlaylistId(channelId){
       const url = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${API_KEY}`;
@@ -301,27 +256,20 @@
     async function fetchLatestVideos(playlistId){
       const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=${MAX_RESULTS}&playlistId=${playlistId}&key=${API_KEY}`;
       const res = await fetch(url); const data = await res.json();
-      return (data.items||[]).map(it=>({
-        id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId,
-        title: it.snippet?.title || "فيديو"
-      })).filter(v=>v.id);
+      return (data.items||[]).map(it=>({ id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId, title: it.snippet?.title || "فيديو" })).filter(v=>v.id);
     }
-
     function makeCard(v){
       const a = document.createElement('a');
       a.className = 'short-card';
-      a.href = `https://www.youtube.com/shorts/${v.id}`;
-      a.target='_blank'; a.rel='noreferrer';
+      a.href = `https://www.youtube.com/shorts/${v.id}`; a.target='_blank'; a.rel='noreferrer';
       a.innerHTML = `
         <iframe class="vid" src="https://www.youtube.com/embed/${v.id}?playsinline=1&modestbranding=1&rel=0"
-          title="${v.title?.replace(/\"/g,'&quot;')||'فيديو'}" frameborder="0"
+          title="${(v.title||'فيديو').replace(/\"/g,'&quot;')}" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen loading="lazy"></iframe>
-        <div class="short-title">${v.title || 'فيديو'}</div>
-      `;
+        <div class="short-title">${v.title||'فيديو'}</div>`;
       return a;
     }
-
     async function loadShorts(){
       const status = document.getElementById('status');
       const car = document.getElementById('carousel');
@@ -333,15 +281,9 @@
         const uploads = await getUploadsPlaylistId(channelId);
         if(!uploads) throw new Error('تعذر تحديد قائمة الرفع');
         const videos = await fetchLatestVideos(uploads);
-
-        car.innerHTML = ''; videos.forEach(v=> car.appendChild(makeCard(v)));
-        grid.innerHTML = ''; videos.forEach(v=> grid.appendChild(makeCard(v)));
-
+        car.innerHTML = ''; grid.innerHTML=''; videos.forEach(v=>{ const c=makeCard(v); car.appendChild(c.cloneNode(true)); grid.appendChild(c); });
         status.textContent = '';
-      }catch(e){
-        console.error(e);
-        status.textContent = 'تعذر جلب المقاطع. تأكد من تفعيل YouTube Data API v3 وربط المفتاح.';
-      }
+      }catch(e){ console.error(e); status.textContent = 'تعذر جلب المقاطع. تأكد من تفعيل YouTube Data API v3 وربط المفتاح.'; }
     }
     loadShorts();
   </script>
