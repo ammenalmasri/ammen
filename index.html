@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>أمين المصري — بروفايل</title>
+  <meta name="description" content="بروفايل احترافي — أمين المصري | التصوير، المونتاج، التسويق">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0A0A0B; --muted:rgba(255,255,255,.75); --muted2:rgba(255,255,255,.6); }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: "Tajawal", system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); color:#fff; }
+    a { color: inherit; text-decoration: none }
+    .container { max-width: 1152px; margin-inline: auto; padding-inline: 1rem; }
+    header { position: fixed; inset-inline:0; top:0; z-index:50; backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(10,10,11,.65); }
+    nav { display:flex; align-items:center; justify-content: space-between; padding: .9rem 0; }
+    .btn { border-radius: 12px; padding: .6rem 1rem; border:1px solid rgba(255,255,255,.15); }
+    .btn.primary { background:#fff; color:#000; }
+    .hero { padding-top: 6rem; position:relative; overflow:hidden; }
+    .bgfx { position:absolute; inset:0; z-index:-1; background:
+      radial-gradient(circle at 20% -10%, rgba(129,140,248,.35), transparent 35%),
+      radial-gradient(circle at 80% 0, rgba(236,72,153,.35), transparent 35%);
+      }
+    .grid { display:grid; gap: 2rem; }
+    @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    h1 { font-size: clamp(2rem, 4vw, 3.5rem); line-height:1.15; margin: .5rem 0 0; }
+    h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin: 0 0 .75rem }
+    p.lead { color: var(--muted); line-height: 1.9; max-width: 640px; }
+    .photo-wrap { width: 18rem; max-width: 90vw; aspect-ratio:1/1; border-radius: 24px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); padding:4px; margin-inline:auto; position:relative; }
+    .placeholder { position:absolute; inset:4px; border-radius:20px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(129,140,248,.15), rgba(236,72,153,.15)); font-weight:800; font-size:2.2rem; color:rgba(255,255,255,.85); }
+    .photo-wrap img { width:100%; height:100%; object-fit:cover; border-radius: 20px; display:none; }
+    section { padding: 4rem 0; }
+    .card { border:1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(255,255,255,.05); padding: 1.2rem; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .services { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .service-title { font-weight:700; margin:.5rem 0 }
+    .muted { color: var(--muted); }
+    .muted2 { color: var(--muted2); }
+    .work-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .video { overflow:hidden; border-radius: 16px; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); }
+    .video iframe { width:100%; aspect-ratio:16/9; display:block; }
+    footer { border-top:1px solid rgba(255,255,255,.1); text-align:center; padding:1.2rem 0; color: var(--muted2);}
+    .fade-up { opacity: 0; transform: translateY(18px); animation: fadeup .8s forwards; }
+    @keyframes fadeup { to { opacity:1; transform:none } }
+    .icons a svg { width:20px; height:20px; }
+    .icons a { display:inline-flex; align-items:center; gap:.5rem; }
+    /* WhatsApp FAB */
+    .wa-fab { position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 60; background:#22c55e; color:#fff; padding:.75rem 1rem; border-radius:999px; box-shadow: 0 10px 30px rgba(0,0,0,.3); display:inline-flex; gap:.5rem; align-items:center; }
+    .wa-fab:hover { background:#16a34a; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <strong>أمين المصري</strong>
+        <div class="hide-mobile">
+          <a href="#about" class="btn">عني</a>
+          <a href="#services" class="btn">خدماتي</a>
+          <a href="#work" class="btn">أعمالي</a>
+          <a href="#contact" class="btn primary">تواصل</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="bgfx"></div>
+      <div class="container grid grid-2">
+        <div>
+          <span class="btn" style="background:rgba(255,255,255,.06)">ملف تعريفي احترافي</span>
+          <h1>أمين المصري</h1>
+          <p class="lead">صانع محتوى وإنتاج إعلامي، متخصص في التصوير، المونتاج، والتسويق. أقدّم حلولًا إبداعية لصناعة الفيديوهات، إدارة الحملات، والتواصل مع الجمهور باحتراف.</p>
+          <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap">
+            <a href="#work" class="btn primary">شاهد أعمالي</a>
+            <a href="#contact" class="btn">تواصل معي</a>
+          </div>
+        </div>
+        <div class="fade-up" style="justify-self:center">
+          <div class="photo-wrap">
+            <div class="placeholder">أ م</div>
+            <!-- ضع صورتك في: /images/profile.jpg -->
+            <img src="/images/profile.jpg" alt="صورة أمين المصري" onerror="this.style.display='none';" />
+          </div>
+          <div style="text-align:center; margin-top:.5rem;" class="muted2">ضع صورتك في: <code>/images/profile.jpg</code></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2>عني</h2>
+        <p class="lead">أنا أمين المصري، طالب علاقات عامة وإعلان، لدي خبرة في صناعة المحتوى، التصوير والفيديو والإنتاج الإعلامي، إضافةً إلى التقديم أمام الجمهور وإدارة التغطيات الصحفية. أدمج الذكاء الاصطناعي في الإنتاج الإعلامي لصناعة أعمال مؤثرة وذات جودة عالية.</p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>خدماتي</h2>
+        <div class="grid services">
+          <div class="card fade-up">
+            <div>📷</div>
+            <div class="service-title">التصوير</div>
+            <div class="muted">جلسات تصوير احترافية (أفراد/منتجات/فعاليات) بإضاءة متوازنة وتكوين جذاب يعبّر عن الهوية البصرية.</div>
+          </div>
+          <div class="card fade-up">
+            <div>🎬</div>
+            <div class="service-title">المونتاج</div>
+            <div class="muted">مونتاج إبداعي، موشن جرافيك، وتلوين ومعالجات صوتية لصناعة قصة متكاملة التأثير.</div>
+          </div>
+          <div class="card fade-up">
+            <div>📣</div>
+            <div class="service-title">التسويق</div>
+            <div class="muted">إستراتيجية محتوى، حملات إعلانية، وإدارة قنوات رقمية للوصول للجمهور المناسب وتحقيق نتائج.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <h2>أعمالي</h2>
+        <p class="muted">آخر الفيديوهات من قناتي على يوتيوب</p>
+        <div id="videos" class="grid work-grid"></div>
+        <p id="status" class="muted2"></p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card">
+          <h2>تواصل معي</h2>
+          <p class="muted">تابعني على شبكات التواصل للتعاون والاستفسار.</p>
+          <div class="icons" style="display:flex; gap:10px; flex-wrap:wrap">
+            <a href="https://www.instagram.com/ameen_.almasri?igsh=MTVrM2tuaG9ramQwdA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" class="btn primary">📸 Instagram</a>
+            <a href="https://www.facebook.com/share/1B93jURaEE/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="btn">📘 Facebook</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa-fab" href="https://wa.me/962792847709?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D9%85%D9%8A%D9%86%D8%8C%20%D8%AD%D8%A7%D8%A8%20%D8%A3%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF" target="_blank" rel="noreferrer">💬 واتساب</a>
+
+  <footer>© <span id="year"></span> أمين المصري — جميع الحقوق محفوظة.</footer>
+
+  <script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const API_KEY = "AIzaSyAoSGkHZnJUPF1QX7or6mhLIhpNOkk-mig";
+  const HANDLE = "@ameenalmasri-qz8ny";
+  const MAX_RESULTS = 8;
+
+  async function getChannelAndUploadsId() {
+    const chRes = await fetch(`https://yt.lemnoslife.com/noKey/channels?handle=${encodeURIComponent(HANDLE)}`);
+    const chData = await chRes.json();
+    const item = chData?.items?.[0];
+    const uploadsId = item?.contentDetails?.relatedPlaylists?.uploads;
+    return { uploadsId };
+  }
+
+  async function getLastVideos() {
+    const status = document.getElementById('status');
+    try {
+      status.textContent = 'جارِ جلب الفيديوهات…';
+      const { uploadsId } = await getChannelAndUploadsId();
+      if (!uploadsId) throw new Error('تعذّر تحديد قائمة التحميلات');
+      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=${MAX_RESULTS}&playlistId=${uploadsId}&key=${API_KEY}`;
+      const r = await fetch(url);
+      const d = await r.json();
+      const items = (d.items || []).map(it => ({ id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId, title: it.snippet?.title || 'فيديو' }))
+        .filter(v => v.id);
+      renderVideos(items);
+      status.textContent = '';
+    } catch (e) {
+      console.error(e);
+      status.textContent = 'حدث خطأ أثناء جلب الفيديوهات.';
+    }
+  }
+
+  function renderVideos(videos) {
+    const wrap = document.getElementById('videos');
+    wrap.innerHTML = '';
+    for (const v of videos) {
+      const a = document.createElement('a');
+      a.href = `https://www.youtube.com/watch?v=${v.id}`;
+      a.target = '_blank';
+      a.className = 'video fade-up';
+      a.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${v.id}" title="${v.title.replace(/"/g,'&quot;')}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <div style="padding: .8rem 1rem; font-weight:600; line-height:1.6;">${v.title}</div>
+      `;
+      wrap.appendChild(a);
+    }
+  }
+
+  getLastVideos();
+  </script>
+</body>
+</html>
