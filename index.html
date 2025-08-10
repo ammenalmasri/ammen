@@ -4,54 +4,81 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>أمين المصري — بروفايل</title>
-  <meta name="description" content="بروفايل احترافي — أمين المصري | التصوير، المونتاج، التسويق">
+  <meta name="description" content="بروفايل احترافي — أمين المصري | تصوير فيديو، مونتاج، وتسويق رقمي">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --bg:#0A0A0B; --muted:rgba(255,255,255,.75); --muted2:rgba(255,255,255,.6); }
+    :root { --bg:#0A0A0B; --muted:rgba(255,255,255,.75); --muted2:rgba(255,255,255,.6); --white:#fff; }
     * { box-sizing: border-box; }
+    html, body { scroll-behavior:smooth; }
     body { margin:0; font-family: "Tajawal", system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); color:#fff; }
     a { color: inherit; text-decoration: none }
     .container { max-width: 1152px; margin-inline: auto; padding-inline: 1rem; }
-    header { position: fixed; inset-inline:0; top:0; z-index:50; backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,.1); background: rgba(10,10,11,.65); }
+
+    /* Header */
+    header { position: fixed; inset-inline:0; top:0; z-index:50; transition: all .35s ease; }
+    header.scrolled { backdrop-filter: blur(16px); background: rgba(10,10,11,.65); border-bottom: 1px solid rgba(255,255,255,.1); }
     nav { display:flex; align-items:center; justify-content: space-between; padding: .9rem 0; }
-    .btn { border-radius: 12px; padding: .6rem 1rem; border:1px solid rgba(255,255,255,.15); }
+    .btn { border-radius: 12px; padding: .6rem 1rem; border:1px solid rgba(255,255,255,.15); transition:transform .2s ease, background .2s ease; will-change: transform; }
+    .btn:hover { transform: translateY(-2px); }
     .btn.primary { background:#fff; color:#000; }
     .hero { padding-top: 6rem; position:relative; overflow:hidden; }
     .bgfx { position:absolute; inset:0; z-index:-1; background:
       radial-gradient(circle at 20% -10%, rgba(129,140,248,.35), transparent 35%),
       radial-gradient(circle at 80% 0, rgba(236,72,153,.35), transparent 35%);
-      }
+      animation: hue 12s linear infinite; }
+    @keyframes hue { from { filter:hue-rotate(0deg) } to { filter:hue-rotate(360deg) } }
+
+    /* Grid & type */
     .grid { display:grid; gap: 2rem; }
     @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
     h1 { font-size: clamp(2rem, 4vw, 3.5rem); line-height:1.15; margin: .5rem 0 0; }
     h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin: 0 0 .75rem }
     p.lead { color: var(--muted); line-height: 1.9; max-width: 640px; }
+
+    /* Photo placeholder */
     .photo-wrap { width: 18rem; max-width: 90vw; aspect-ratio:1/1; border-radius: 24px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); padding:4px; margin-inline:auto; position:relative; }
-    .placeholder { position:absolute; inset:4px; border-radius:20px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(129,140,248,.15), rgba(236,72,153,.15)); font-weight:800; font-size:2.2rem; color:rgba(255,255,255,.85); }
+    .placeholder { position:absolute; inset:4px; border-radius:20px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, rgba(129,140,248,.18), rgba(236,72,153,.18)); font-weight:800; font-size:2.2rem; color:rgba(255,255,255,.9); animation: float 3s ease-in-out infinite; }
+    @keyframes float { 0%,100% { transform: translateY(-3px); } 50%{ transform: translateY(3px); } }
     .photo-wrap img { width:100%; height:100%; object-fit:cover; border-radius: 20px; display:none; }
+
     section { padding: 4rem 0; }
-    .card { border:1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(255,255,255,.05); padding: 1.2rem; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+    .card { border:1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(255,255,255,.05); padding: 1.2rem; backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0,0,0,.25); transition: transform .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-6px); box-shadow:0 20px 40px rgba(0,0,0,.35); }
+
     .services { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
     .service-title { font-weight:700; margin:.5rem 0 }
     .muted { color: var(--muted); }
     .muted2 { color: var(--muted2); }
-    .work-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .video { overflow:hidden; border-radius: 16px; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); }
-    .video iframe { width:100%; aspect-ratio:16/9; display:block; }
+
+    /* Shorts grid: 9:16 cards */
+    .work-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+    .short { overflow:hidden; border-radius: 18px; border:1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.05); transform: translateY(10px) scale(.98); transition: transform .3s ease, box-shadow .3s ease; }
+    .short:hover { transform: translateY(-4px) scale(1.01); box-shadow:0 16px 36px rgba(0,0,0,.35); }
+    .short iframe { width:100%; aspect-ratio:9/16; display:block; }
+
     footer { border-top:1px solid rgba(255,255,255,.1); text-align:center; padding:1.2rem 0; color: var(--muted2);}
-    .fade-up { opacity: 0; transform: translateY(18px); animation: fadeup .8s forwards; }
-    @keyframes fadeup { to { opacity:1; transform:none } }
-    .icons a svg { width:20px; height:20px; }
-    .icons a { display:inline-flex; align-items:center; gap:.5rem; }
+
+    /* Reveal-on-scroll system */
+    .reveal { opacity:0; transform: translateY(18px); }
+    .reveal.in { opacity:1; transform:none; transition: opacity .8s ease, transform .8s ease; }
+    .reveal[data-delay="100"].in { transition-delay:.1s }
+    .reveal[data-delay="200"].in { transition-delay:.2s }
+    .reveal[data-delay="300"].in { transition-delay:.3s }
+    .reveal[data-delay="400"].in { transition-delay:.4s }
+
+    /* Social icons */
+    .icon { width:20px; height:20px; display:inline-block; vertical-align:middle; }
+    .row { display:flex; gap:10px; flex-wrap:wrap }
+
     /* WhatsApp FAB */
-    .wa-fab { position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 60; background:#22c55e; color:#fff; padding:.75rem 1rem; border-radius:999px; box-shadow: 0 10px 30px rgba(0,0,0,.3); display:inline-flex; gap:.5rem; align-items:center; }
-    .wa-fab:hover { background:#16a34a; }
+    .wa-fab { position: fixed; left: 1.25rem; bottom: 1.25rem; z-index: 60; background:#22c55e; color:#fff; padding:.75rem 1rem; border-radius:999px; box-shadow: 0 10px 30px rgba(0,0,0,.3); display:inline-flex; gap:.5rem; align-items:center; transition: transform .2s ease; }
+    .wa-fab:hover { transform: translateY(-2px); background:#16a34a; }
   </style>
 </head>
 <body>
-  <header>
+  <header id="hdr">
     <div class="container">
       <nav>
         <strong>أمين المصري</strong>
@@ -69,19 +96,19 @@
     <section id="home" class="hero">
       <div class="bgfx"></div>
       <div class="container grid grid-2">
-        <div>
+        <div class="reveal in" data-delay="0">
           <span class="btn" style="background:rgba(255,255,255,.06)">ملف تعريفي احترافي</span>
           <h1>أمين المصري</h1>
-          <p class="lead">صانع محتوى وإنتاج إعلامي، متخصص في التصوير، المونتاج، والتسويق. أقدّم حلولًا إبداعية لصناعة الفيديوهات، إدارة الحملات، والتواصل مع الجمهور باحتراف.</p>
+          <p class="lead">صانع محتوى وإنتاج فيديو — متخصص في <strong>تصوير الفيديو</strong>، <strong>المونتاج</strong>، و<strong>التسويق الرقمي بالمحتوى المرئي</strong>. أصنع فيديوهات قصيرة (Shorts) تركّز على القصة وتحقق تفاعلًا ونتائج.</p>
           <div style="margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap">
             <a href="#work" class="btn primary">شاهد أعمالي</a>
             <a href="#contact" class="btn">تواصل معي</a>
           </div>
         </div>
-        <div class="fade-up" style="justify-self:center">
+        <div class="reveal" data-delay="200" style="justify-self:center">
           <div class="photo-wrap">
             <div class="placeholder">أ م</div>
-            <!-- ضع صورتك في: /images/profile.jpg -->
+            <!-- ضع صورتك لاحقًا هنا: /images/profile.jpg -->
             <img src="/images/profile.jpg" alt="صورة أمين المصري" onerror="this.style.display='none';" />
           </div>
           <div style="text-align:center; margin-top:.5rem;" class="muted2">ضع صورتك في: <code>/images/profile.jpg</code></div>
@@ -90,30 +117,30 @@
     </section>
 
     <section id="about">
-      <div class="container">
+      <div class="container reveal" data-delay="0">
         <h2>عني</h2>
-        <p class="lead">أنا أمين المصري، طالب علاقات عامة وإعلان، لدي خبرة في صناعة المحتوى، التصوير والفيديو والإنتاج الإعلامي، إضافةً إلى التقديم أمام الجمهور وإدارة التغطيات الصحفية. أدمج الذكاء الاصطناعي في الإنتاج الإعلامي لصناعة أعمال مؤثرة وذات جودة عالية.</p>
+        <p class="lead">أنا أمين المصري، طالب علاقات عامة وإعلان. خبرتي مركّزة في إنتاج الفيديو القصير: من التخطيط والتصوير العمودي، إلى المونتاج السريع وتنسيق النشر بأسلوب بسيط وواضح.</p>
       </div>
     </section>
 
     <section id="services">
       <div class="container">
-        <h2>خدماتي</h2>
+        <h2 class="reveal" data-delay="0">خدماتي</h2>
         <div class="grid services">
-          <div class="card fade-up">
-            <div>📷</div>
-            <div class="service-title">التصوير</div>
-            <div class="muted">جلسات تصوير احترافية (أفراد/منتجات/فعاليات) بإضاءة متوازنة وتكوين جذاب يعبّر عن الهوية البصرية.</div>
+          <div class="card reveal" data-delay="100">
+            <div>🎥</div>
+            <div class="service-title">تصوير فيديو (عمودي)</div>
+            <div class="muted">تصوير Shorts: مقابلات، قصص قصيرة، وتغطيات سريعة بإضاءة وصوت ملائمين للمنصات.</div>
           </div>
-          <div class="card fade-up">
-            <div>🎬</div>
-            <div class="service-title">المونتاج</div>
-            <div class="muted">مونتاج إبداعي، موشن جرافيك، وتلوين ومعالجات صوتية لصناعة قصة متكاملة التأثير.</div>
+          <div class="card reveal" data-delay="200">
+            <div>✂️</div>
+            <div class="service-title">مونتاج سريع</div>
+            <div class="muted">مونتاج وإخراج سريع للفيديو العمودي، ترتيب السرد، نصوص موجزة، ومعالجة صوت أساسية.</div>
           </div>
-          <div class="card fade-up">
-            <div>📣</div>
-            <div class="service-title">التسويق</div>
-            <div class="muted">إستراتيجية محتوى، حملات إعلانية، وإدارة قنوات رقمية للوصول للجمهور المناسب وتحقيق نتائج.</div>
+          <div class="card reveal" data-delay="300">
+            <div>📈</div>
+            <div class="service-title">تسويق بالفيديو</div>
+            <div class="muted">تخطيط أهداف المحتوى، كتابة سكربت قصير، وجدولة نشر لتحقيق وصول وتفاعل.</div>
           </div>
         </div>
       </div>
@@ -121,83 +148,118 @@
 
     <section id="work">
       <div class="container">
-        <h2>أعمالي</h2>
-        <p class="muted">آخر الفيديوهات من قناتي على يوتيوب</p>
-        <div id="videos" class="grid work-grid"></div>
+        <h2 class="reveal" data-delay="0">أعمالي</h2>
+        <p class="muted reveal" data-delay="100">آخر الشورتات من قناتي على يوتيوب</p>
+        <div id="videos" class="grid work-grid reveal" data-delay="200"></div>
         <p id="status" class="muted2"></p>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <div class="card">
+        <div class="card reveal" data-delay="0">
           <h2>تواصل معي</h2>
-          <p class="muted">تابعني على شبكات التواصل للتعاون والاستفسار.</p>
-          <div class="icons" style="display:flex; gap:10px; flex-wrap:wrap">
-            <a href="https://www.instagram.com/ameen_.almasri?igsh=MTVrM2tuaG9ramQwdA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" class="btn primary">📸 Instagram</a>
-            <a href="https://www.facebook.com/share/1B93jURaEE/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="btn">📘 Facebook</a>
+          <p class="muted">تابعني على شبكات التواصل أو راسلني للاتفاق على مشروعك القادم.</p>
+          <div class="row">
+            <a href="https://www.instagram.com/ameen_.almasri?igsh=MTVrM2tuaG9ramQwdA%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" class="btn primary">
+              <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.4-74.7-74.7s33.4-74.7 74.7-74.7 74.7 33.4 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zM398.8 80c-7.8-20.7-23.1-37-43.8-43.8C334.5 25.6 224 24 224 24s-110.5 1.6-131 12.2c-20.7 7.8-36 23.1-43.8 43.8C38.6 100.5 37 211 37 211s-1.6 110.5 12.2 131c7.8 20.7 23.1 37 43.8 43.8C113.5 396.4 224 398 224 398s110.5-1.6 131-12.2c20.7-7.8 36-23.1 43.8-43.8C409.4 321.5 411 211 411 211s-1.6-110.5-12.2-131z"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/share/1B93jURaEE/?mibextid=wwXIfr" target="_blank" rel="noreferrer" class="btn">
+              <svg class="icon" viewBox="0 0 320 512" aria-hidden="true"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06H295V6.26S265.91 0 238.36 0C167.64 0 121.09 44.38 121.09 124.72v70.62H32v92.66h89.09V512h107.77V288z"/></svg>
+              Facebook
+            </a>
           </div>
         </div>
       </div>
     </section>
   </main>
 
-  <a class="wa-fab" href="https://wa.me/962792847709?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D9%85%D9%8A%D9%86%D8%8C%20%D8%AD%D8%A7%D8%A8%20%D8%A3%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF" target="_blank" rel="noreferrer">💬 واتساب</a>
+  <a class="wa-fab" href="https://wa.me/962792847709?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%A3%D9%85%D9%8A%D9%86%D8%8C%20%D8%AD%D8%A7%D8%A8%20%D8%A3%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AC%D8%AF%D9%8A%D8%AF" target="_blank" rel="noreferrer">
+    <svg class="icon" viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 224.5 32 103.5 32 4 131.5 4 252.5c0 43.5 11.4 85.8 33 123.1L0 480l107.8-35.4c35.2 19.2 74.9 29.3 116.7 29.3h.1c121 0 219.5-99.5 219.5-220.5 0-58.7-23.7-114.5-64.2-156.4zM224.6 438.7h-.1c-37.5 0-74.3-10.1-106.3-29.1l-7.6-4.5-64 21.1 21.3-62.3-4.9-8C47 322 36.9 288 36.9 252.6c0-103.2 84-187.2 187.6-187.2 50.1 0 97.1 19.5 132.7 55s55.1 82.6 55.1 132.7c0 103.3-84 187.6-187.6 187.6zm101.7-139.5c-5.6-2.8-33.1-16.3-38.2-18.2-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18.2-17.6 21.9-3.2 3.7-6.5 4.2-12.1 1.4-33.6-16.6-55.5-29.7-77.6-67.3-5.9-10.1 5.9-9.4 16.8-31.1 1.8-3.7.9-6.8-.5-9.6-1.4-2.8-12.5-30.1-17.1-41.1-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.8-.2-10.4-.2-3.7 0-9.6 1.4-14.7 6.8-5.1 5.6-19.3 18.8-19.3 45.9s19.8 53.2 22.6 56.9c2.8 3.7 38.8 59.3 94 83.2 35 15.1 48.7 16.4 66.3 13.9 10.7-1.7 33.1-13.5 37.7-26.5 4.7-13 4.7-24.2 3.2-26.5-1.4-2.6-5.1-4.2-10.7-7z"/></svg>
+    واتساب
+  </a>
 
   <footer>© <span id="year"></span> أمين المصري — جميع الحقوق محفوظة.</footer>
 
   <script>
+  // Year & header scroll state
   document.getElementById('year').textContent = new Date().getFullYear();
+  const hdr = document.getElementById('hdr');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); window.addEventListener('scroll', onScroll);
 
-  const API_KEY = "AIzaSyAoSGkHZnJUPF1QX7or6mhLIhpNOkk-mig";
+  // Reveal on scroll
+  const revealEls = [...document.querySelectorAll('.reveal')];
+  const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); }); },{ threshold:.2 });
+  revealEls.forEach(el=> io.observe(el));
+
+  // Robust YouTube fetch: resolve channelId from handle using YouTube Search API (no Lemnos)
+  const API_KEY = "AIzaSyD9GEmfKaulTlq5lt1hd9flT7Kret2Vltw";
   const HANDLE = "@ameenalmasri-qz8ny";
-  const MAX_RESULTS = 8;
+  const MAX_RESULTS = 12;
 
-  async function getChannelAndUploadsId() {
-    const chRes = await fetch(`https://yt.lemnoslife.com/noKey/channels?handle=${encodeURIComponent(HANDLE)}`);
-    const chData = await chRes.json();
-    const item = chData?.items?.[0];
-    const uploadsId = item?.contentDetails?.relatedPlaylists?.uploads;
-    return { uploadsId };
+  async function resolveChannelIdFromHandle(handle) {
+    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=channel&q=${encodeURIComponent(handle)}&maxResults=1&key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data?.items?.[0]?.id?.channelId || null;
   }
 
-  async function getLastVideos() {
+  async function getUploadsPlaylistId(channelId) {
+    const url = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return data?.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
+  }
+
+  async function fetchLatestVideos(playlistId) {
+    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=${MAX_RESULTS}&playlistId=${playlistId}&key=${API_KEY}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    return (data.items || []).map(it => ({
+      id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId,
+      title: it.snippet?.title || 'فيديو'
+    })).filter(v => v.id);
+  }
+
+  async function loadShorts() {
     const status = document.getElementById('status');
     try {
-      status.textContent = 'جارِ جلب الفيديوهات…';
-      const { uploadsId } = await getChannelAndUploadsId();
-      if (!uploadsId) throw new Error('تعذّر تحديد قائمة التحميلات');
-      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=${MAX_RESULTS}&playlistId=${uploadsId}&key=${API_KEY}`;
-      const r = await fetch(url);
-      const d = await r.json();
-      const items = (d.items || []).map(it => ({ id: it.contentDetails?.videoId || it.snippet?.resourceId?.videoId, title: it.snippet?.title || 'فيديو' }))
-        .filter(v => v.id);
-      renderVideos(items);
+      status.textContent = 'جارِ جلب الشورتات…';
+      const channelId = await resolveChannelIdFromHandle(HANDLE);
+      if (!channelId) throw new Error('تعذر تحديد القناة');
+      const uploads = await getUploadsPlaylistId(channelId);
+      if (!uploads) throw new Error('تعذر تحديد قائمة الرفع');
+      const videos = await fetchLatestVideos(uploads);
+      renderShorts(videos);
       status.textContent = '';
     } catch (e) {
       console.error(e);
-      status.textContent = 'حدث خطأ أثناء جلب الفيديوهات.';
+      status.textContent = 'تعذر جلب المقاطع. تأكد من تفعيل YouTube Data API v3 وربط المفتاح.';
     }
   }
 
-  function renderVideos(videos) {
+  function renderShorts(videos) {
     const wrap = document.getElementById('videos');
     wrap.innerHTML = '';
     for (const v of videos) {
-      const a = document.createElement('a');
-      a.href = `https://www.youtube.com/watch?v=${v.id}`;
-      a.target = '_blank';
-      a.className = 'video fade-up';
-      a.innerHTML = `
-        <iframe src="https://www.youtube.com/embed/${v.id}" title="${v.title.replace(/"/g,'&quot;')}" frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
-        <div style="padding: .8rem 1rem; font-weight:600; line-height:1.6;">${v.title}</div>
+      const card = document.createElement('a');
+      card.href = `https://www.youtube.com/shorts/${v.id}`;
+      card.target = '_blank';
+      card.className = 'short reveal';
+      card.innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${v.id}?playsinline=1" title="${v.title.replace(/\"/g,'&quot;')}" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen loading="lazy"></iframe>
+        <div style="padding:.6rem .8rem; font-weight:600; line-height:1.6;">${v.title}</div>
       `;
-      wrap.appendChild(a);
+      wrap.appendChild(card);
+      setTimeout(()=> card.classList.add('in'), 50);
     }
   }
 
-  getLastVideos();
+  loadShorts();
   </script>
 </body>
 </html>
