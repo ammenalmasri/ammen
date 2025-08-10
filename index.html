@@ -12,27 +12,45 @@
   <style>
     :root{
       --bg:#0b0c10; --text:#fff; --muted:rgba(255,255,255,.78); --muted2:rgba(255,255,255,.6);
-      --g1:#4f46e5; /* indigo-600 */
-      --g2:#8b5cf6; /* violet-500 */
-      --g3:#ec4899; /* pink-500 */
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.12);
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --g1:#4f46e5; --g2:#8b5cf6; --g3:#ec4899;
+      --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+      --shadow:0 10px 30px rgba(0,0,0,.25);
     }
     *{box-sizing:border-box}
     html,body{scroll-behavior:smooth}
-    body{margin:0;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.7}
+    body{margin:0;font-family:"Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);line-height:1.8}
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
-
     .container{max-width:1160px;margin-inline:auto;padding-inline:1rem}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);background:rgba(10,10,12,.55);border-bottom:1px solid var(--border)}
-    nav{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
-    .btn{border-radius:12px;padding:.55rem .9rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:.5rem}
+
+    /* Header / Navbar */
+    header{position:sticky;top:0;z-index:100;background:rgba(10,10,12,.55);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.7rem 0}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
+    .brand-badge{padding:.35rem .6rem;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.05)}
+    .menu{display:flex;align-items:center;gap:.5rem}
+    .btn{border-radius:12px;padding:.55rem .9rem;border:1px solid var(--border);display:inline-flex;align-items:center;gap:.5rem;white-space:nowrap}
     .btn.primary{background:#fff;color:#000;border-color:transparent}
     .btn.ghost:hover{background:rgba(255,255,255,.08)}
 
-    .hero{padding:52px 0 12px;position:relative;overflow:hidden}
+    /* Mobile menu */
+    .hamburger{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--border);border-radius:10px;background:rgba(255,255,255,.04)}
+    .hamburger svg{width:22px;height:22px}
+    .links{display:none;flex-direction:column;gap:.5rem;padding:.7rem;border-top:1px solid var(--border)}
+    .links a{padding:.6rem .8rem;border-radius:10px}
+    .links a:hover{background:rgba(255,255,255,.07)}
+    .menu.open + .links{display:flex}
+    @media(min-width:900px){
+      .hamburger{display:none}
+      .links{display:none}
+      .menu{gap:.5rem}
+      .menu .btn{display:inline-flex}
+      .menu .desktop-links{display:inline-flex;gap:.5rem}
+    }
+    .desktop-links{display:none}
+
+    /* Hero */
+    .hero{padding:52px 0 16px;position:relative;overflow:hidden}
     .bgfx{
       position:absolute;inset:0;z-index:-1;opacity:.9;
       background:
@@ -50,26 +68,25 @@
     .grid{display:grid;gap:24px}
     @media(min-width:900px){.grid-2{grid-template-columns:1.2fr .8fr}}
 
-    .pill{display:inline-block;padding:.35rem .6rem;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,.05)}
-
     /* Photo */
     .photo{width:min(18rem,86vw);aspect-ratio:1/1;border-radius:24px;overflow:hidden;border:1px solid var(--border);
       background:linear-gradient(135deg,rgba(79,70,229,.18),rgba(236,72,153,.18));padding:4px;box-shadow:var(--shadow)}
     .photo img{width:100%;height:100%;object-fit:cover;border-radius:20px;animation:float 3s ease-in-out infinite}
     @keyframes float{0%,100%{transform:translateY(-3px)}50%{transform:translateY(3px)}}
 
+    /* Sections & cards */
     section{padding:56px 0}
     .card{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow)}
     .services{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
     .service-title{font-weight:700;margin:.4rem 0}
+    .muted{color:var(--muted)} .muted2{color:var(--muted2)}
 
-    /* Reveal (respect reduced motion) */
+    /* Reveal */
     .reveal{opacity:0;transform:translateY(18px)}
     .reveal.in{opacity:1;transform:none;transition:opacity .7s ease,transform .7s ease}
     @media (prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1;transform:none;transition:none}.bgfx{animation:none}}
 
     /* Shorts: mobile carousel + desktop grid */
-    .shorts-wrap{display:grid;gap:14px}
     .carousel{display:flex;gap:14px;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
     .carousel::-webkit-scrollbar{height:8px}
     .carousel::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px}
@@ -82,7 +99,6 @@
     .short-card .vid{width:100%;aspect-ratio:9/16;display:block}
     .short-title{padding:.6rem .75rem;font-weight:700;line-height:1.5}
 
-    /* Desktop grid */
     .grid-shorts{display:none}
     @media(min-width:900px){
       .carousel{display:none}
@@ -90,8 +106,8 @@
       .short-card{flex:unset;max-width:unset}
     }
 
+    /* Footer & FAB */
     footer{border-top:1px solid var(--border);color:var(--muted2);text-align:center;padding:18px 0}
-
     .wa-fab{position:fixed;left:16px;bottom:16px;z-index:60;background:#22c55e;color:#fff;padding:.7rem 1rem;border-radius:999px;
       display:inline-flex;gap:.5rem;align-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35)}
     .icon{width:20px;height:20px;display:inline-block;vertical-align:middle}
@@ -100,17 +116,35 @@
 </head>
 <body>
   <!-- Header -->
-  <header id="hdr">
+  <header>
     <div class="container">
-      <nav>
-        <strong class="pill">أمين المصري</strong>
-        <div class="hide-mobile">
-          <a href="#about" class="btn ghost">عني</a>
-          <a href="#services" class="btn ghost">خدماتي</a>
-          <a href="#work" class="btn ghost">أعمالي</a>
-          <a href="#contact" class="btn primary">تواصل</a>
+      <div class="nav">
+        <div class="brand">
+          <span class="brand-badge">أمين المصري</span>
         </div>
-      </nav>
+
+        <!-- Right chunk: desktop links + buttons -->
+        <div class="menu" id="menu">
+          <button class="hamburger" id="hambtn" aria-label="فتح القائمة" aria-expanded="false" aria-controls="links">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M8 18h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </button>
+
+          <div class="desktop-links">
+            <a href="#about" class="btn ghost">عني</a>
+            <a href="#services" class="btn ghost">خدماتي</a>
+            <a href="#work" class="btn ghost">أعمالي</a>
+            <a href="#contact" class="btn primary">تواصل</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile links (collapsible) -->
+      <div class="links" id="links">
+        <a href="#about">عني</a>
+        <a href="#services">خدماتي</a>
+        <a href="#work">أعمالي</a>
+        <a href="#contact">تواصل</a>
+      </div>
     </div>
   </header>
 
@@ -120,8 +154,8 @@
       <div class="bgfx"></div>
       <div class="container grid grid-2">
         <div class="reveal in">
-          <span class="pill">بورتفوليو فيديو احترافي</span>
-          <h1 id="typing"></h1>
+          <span class="brand-badge">بورتفوليو فيديو احترافي</span>
+          <h1>أمين المصري</h1>
           <p class="lead">أنتج فيديوهات قصيرة <strong>(Shorts)</strong> تركز على القصة: <strong>تصوير فيديو</strong>، <strong>مونتاج</strong>، و<strong>تسويق بالمحتوى المرئي</strong> — بتنسيق يناسب المنصات ويحقق تفاعلًا واضحًا.</p>
           <div style="margin-top:12px;display:flex;gap:.6rem;flex-wrap:wrap">
             <a href="#work" class="btn primary">شاهد أعمالي</a>
@@ -129,7 +163,10 @@
           </div>
         </div>
         <div class="reveal" style="justify-self:center">
-          <div class="photo"><img src="profile.jpg" alt="صورة أمين المصري"></div>
+          <div class="photo">
+            <!-- صورة من الرابط مباشرة -->
+            <img src="https://i.ibb.co/ZsL6t6F/profile.jpg" alt="صورة أمين المصري">
+          </div>
         </div>
       </div>
     </section>
@@ -219,20 +256,26 @@
   <footer>© <span id="year"></span> أمين المصري — جميع الحقوق محفوظة.</footer>
 
   <script>
-    // سنة الفوتر + حالة الهيدر
+    // سنة الفوتر
     document.getElementById('year').textContent = new Date().getFullYear();
-    const hdr = document.getElementById('hdr');
-    const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 6);
-    onScroll(); window.addEventListener('scroll', onScroll);
+
+    // Mobile menu toggle
+    const hambtn = document.getElementById('hambtn');
+    const links  = document.getElementById('links');
+    const menu   = document.getElementById('menu');
+    hambtn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      hambtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      links.style.display = open ? 'flex' : 'none';
+    });
+    // أغلق القائمة عند الضغط على أي رابط
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open'); links.style.display='none'; hambtn.setAttribute('aria-expanded','false');
+    }));
 
     // Reveal on scroll
     const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')})},{threshold:.18});
     document.querySelectorAll('.reveal, .card').forEach(el=>io.observe(el));
-
-    // Typing effect (خفيف)
-    const typingEl = document.getElementById('typing');
-    const typingText = "أمين المصري";
-    let i=0; (function type(){ if(i<=typingText.length){ typingEl.textContent = typingText.slice(0,i++); setTimeout(type,110);} })();
 
     // === YouTube Shorts ===
     const API_KEY = "AIzaSyD9GEmfKaulTlq5lt1hd9flT7Kret2Vltw"; // غيّره لو احتجت
@@ -250,13 +293,11 @@
       const r2 = await fetch(u2); const d2 = await r2.json();
       return d2?.items?.[0]?.id?.channelId || null;
     }
-
     async function getUploadsPlaylistId(channelId){
       const url = `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${API_KEY}`;
       const res = await fetch(url); const data = await res.json();
       return data?.items?.[0]?.contentDetails?.relatedPlaylists?.uploads || null;
     }
-
     async function fetchLatestVideos(playlistId){
       const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&maxResults=${MAX_RESULTS}&playlistId=${playlistId}&key=${API_KEY}`;
       const res = await fetch(url); const data = await res.json();
@@ -273,10 +314,10 @@
       a.target='_blank'; a.rel='noreferrer';
       a.innerHTML = `
         <iframe class="vid" src="https://www.youtube.com/embed/${v.id}?playsinline=1&modestbranding=1&rel=0"
-          title="${v.title.replace(/\"/g,'&quot;')}" frameborder="0"
+          title="${v.title?.replace(/\"/g,'&quot;')||'فيديو'}" frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen loading="lazy"></iframe>
-        <div class="short-title">${v.title}</div>
+        <div class="short-title">${v.title || 'فيديو'}</div>
       `;
       return a;
     }
@@ -293,9 +334,7 @@
         if(!uploads) throw new Error('تعذر تحديد قائمة الرفع');
         const videos = await fetchLatestVideos(uploads);
 
-        // Mobile carousel
         car.innerHTML = ''; videos.forEach(v=> car.appendChild(makeCard(v)));
-        // Desktop grid
         grid.innerHTML = ''; videos.forEach(v=> grid.appendChild(makeCard(v)));
 
         status.textContent = '';
